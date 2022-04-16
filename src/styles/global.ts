@@ -20,4 +20,8 @@ export default createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+  
+  button {
+    cursor: pointer;
+  }
 `
