@@ -21,6 +21,7 @@ export const Title = styled.h1`
 
 export const HelpIcon = styled(IoIosHelpCircle)`
     color: #83949d;
+    margin-left: 4px;
 `
 
 export const Desciption = styled.p`
