@@ -1,0 +1,1 @@
+export { Pipes as default } from './Pipes'
