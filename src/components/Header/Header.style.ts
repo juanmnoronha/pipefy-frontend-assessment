@@ -19,9 +19,14 @@ export const Title = styled.h1`
     margin-bottom: 8px;
 `
 
+export const Help = styled.a`
+    display: flex;
+    margin-left: 4px;
+    place-content: center;
+`
+
 export const HelpIcon = styled(IoIosHelpCircle)`
     color: #83949d;
-    margin-left: 4px;
 `
 
 export const Desciption = styled.p`
