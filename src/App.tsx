@@ -1,12 +1,13 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
+
+import Header from './components/Header';
 
 import GlobalStyle from './styles/global';
 
 export const Container = styled.section``
 export const Title = styled.h1``
 export const Description = styled.p``
-export const Header = styled.header``
 export const Help = styled.span``
 export const Pipes = styled.div``
 export const Card = styled.div``
@@ -16,11 +17,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Header>
-          <Title>Your pipes</Title>
-          <Help>Help</Help>
-          <Description>Here are all your process <a href="/">learn more</a>.</Description>
-        </Header>
+        <Header />
         <Pipes>
           <Card>
             <i>Lock</i>
