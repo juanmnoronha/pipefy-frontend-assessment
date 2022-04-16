@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FiLock } from 'react-icons/fi'
-import { FaRegStar } from 'react-icons/fa'
+import { AiFillStar } from 'react-icons/ai'
 
 export const Container = styled.div`
     align-items: center;
@@ -25,11 +25,22 @@ export const Actions = styled.div`
 `
 
 export const LockIcon = styled(FiLock)`
+    color: #83949d;
     font-size: 24px;
 `
 
-export const FavoriteIcon = styled(FaRegStar)`
+export const FavoriteIcon = styled(AiFillStar)`
+    color: transparent;
+    cursor: pointer;
     font-size: 24px;
+    stroke-width: 80px;
+    stroke: #83949d;
+    display: block;
+
+    &:hover {
+        color: #f4ad3d;
+        stroke: #f4ad3d;
+    }
 `
 
 export const Content = styled.div`
@@ -44,13 +55,13 @@ export const Content = styled.div`
 
 export const Title = styled.h2`
     color: #11181f;
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 16px;
     text-align: center;
 `
 
 export const Count = styled.span`
-    font-size: 16px;
+    font-size: 18px;
     color: #4d616e;
     text-align: center;
 `
