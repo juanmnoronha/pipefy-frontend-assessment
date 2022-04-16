@@ -5,8 +5,10 @@ import * as S from './Card.style';
 export function Card() {
     return (
         <S.Container>
-            <S.Lock />
-            <S.Favorite />
+            <S.Actions>
+                <S.LockIcon />
+                <S.FavoriteIcon />
+            </S.Actions>
             <S.Content>
                 <S.Title>Title</S.Title>
                 <S.Count>0 Cards</S.Count>

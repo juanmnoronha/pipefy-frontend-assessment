@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IoIosHelpCircle } from 'react-icons/io'
 
 export const Container = styled.header`
     align-items: flex-start;
@@ -18,15 +19,8 @@ export const Title = styled.h1`
     margin-bottom: 8px;
 `
 
-export const Help = styled.button`
-    background-color: #83949d;
-    border-radius: 50%;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    height: 24px;
-    margin-left: 8px;
-    width: 24px;
+export const HelpIcon = styled(IoIosHelpCircle)`
+    color: #83949d;
 `
 
 export const Desciption = styled.p`

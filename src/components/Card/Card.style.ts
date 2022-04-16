@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FiLock } from 'react-icons/fi'
+import { FaRegStar } from 'react-icons/fa'
 
 export const Container = styled.div`
     align-items: center;
@@ -12,16 +14,22 @@ export const Container = styled.div`
     width: 100%;
 `
 
-export const Lock = styled.button`
+export const Actions = styled.div`
+    display: flex;
+    height: 24px;
+    justify-content: space-between;
+    padding: 0 16px;
     position: absolute;
-    left: 16px;
     top: 16px;
+    width: 100%;
 `
 
-export const Favorite = styled.button`
-    position: absolute;
-    right: 16px;
-    top: 16px;
+export const LockIcon = styled(FiLock)`
+    font-size: 24px;
+`
+
+export const FavoriteIcon = styled(FaRegStar)`
+    font-size: 24px;
 `
 
 export const Content = styled.div`

@@ -7,7 +7,7 @@ export function Header() {
     <S.Container>
         <S.Title>
             Your pipes
-            <S.Help>?</S.Help>
+            <S.HelpIcon />
         </S.Title>
         <S.Desciption>Here are all your process <S.Link href="/">learn more</S.Link>.</S.Desciption>
     </S.Container>
