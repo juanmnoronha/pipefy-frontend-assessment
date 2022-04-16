@@ -7,4 +7,11 @@ export const Container = styled.div`
     padding: 0 40px;
 `
 
+export const Grid = styled.div`
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, 240px);
+    width: 100%;
+`
+
 export const Card = styled.div``
