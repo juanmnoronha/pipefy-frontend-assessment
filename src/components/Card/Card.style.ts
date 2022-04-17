@@ -16,26 +16,24 @@ export const Container = styled.div`
 `
 
 export const Actions = styled.div`
-    display: flex;
-    height: 24px;
-    justify-content: space-between;
+    height: 32px;
     position: relative;
     width: 100%;
-`
-export const Icon = styled.img`
-    height: 60px;
-    width: 60px;
 `
 
 export const LockIcon = styled(FiLock)`
     color: var(--icon-base);
     font-size: 24px;
+    left: 0;
+    position: absolute;
 `
 
 export const FavoriteIcon = styled(AiFillStar)`
     color: transparent;
     cursor: pointer;
     font-size: 24px;
+    position: absolute;
+    right: 0;
     stroke-width: 80px;
     stroke: var(--icon-base);
 
@@ -52,17 +50,23 @@ export const Content = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
+    padding: 0 8px;
     width: 100%;
+`
+
+export const Icon = styled.img`
+    height: 60px;
+    width: 60px;
 `
 
 export const Title = styled.h2`
     color: var(--text-base);
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
 `
 
 export const Count = styled.span`
-    font-size: 18px;
     color: var(--text-500);
+    font-size: 18px;
     text-align: center;
 `
