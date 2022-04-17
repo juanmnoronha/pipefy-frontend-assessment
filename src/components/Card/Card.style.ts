@@ -16,7 +16,8 @@ export const Container = styled.div`
 `
 
 export const Actions = styled.div`
-    height: 32px;
+    height: 24px;
+    margin-bottom: 4px;
     position: relative;
     width: 100%;
 `
@@ -36,6 +37,7 @@ export const FavoriteIcon = styled(AiFillStar)`
     right: 0;
     stroke-width: 80px;
     stroke: var(--icon-base);
+    top: 0;
 
     &:hover {
         color: var(--yellow-base);
