@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as C from '../../constants';
+import { FAQ_LINK, PIPE_LINK } from '../../utils/constants';
 import * as S from './Header.style';
 
 export function Header() {
@@ -8,11 +8,11 @@ export function Header() {
     <S.Container>
         <S.Title>
             Your pipes
-            <S.Help href={C.FAQ_LINK} target='_blank'>
+            <S.Help href={FAQ_LINK} target='_blank'>
               <S.HelpIcon />
             </S.Help>
         </S.Title>
-        <S.Desciption>Here are all your process <S.Link href={C.PIPE_LINK} target="_blank">learn more</S.Link>.</S.Desciption>
+        <S.Desciption>Here are all your process <S.Link href={PIPE_LINK} target="_blank">learn more</S.Link>.</S.Desciption>
     </S.Container>
   );
 }

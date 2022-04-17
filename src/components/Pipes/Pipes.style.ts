@@ -4,7 +4,7 @@ export const Container = styled.div`
     align-items: flex-start;
     display: flex;
     justify-content: flex-start;
-    padding: 0 40px;
+    padding: 0 40px 32px;
 `
 
 export const Grid = styled.div`
