@@ -12,6 +12,7 @@ export const Container = styled.header`
 
 export const Title = styled.h1`
     align-items: center;
+    color: var(--text-base);
     display: flex;
     font-size: 24px;
     font-weight: bold;
@@ -26,16 +27,16 @@ export const Help = styled.a`
 `
 
 export const HelpIcon = styled(IoIosHelpCircle)`
-    color: #83949d;
+    color: var(--icon-base);
 `
 
 export const Desciption = styled.p`
-    color: #4d616e;
+    color: var(--text-500);
     font-size: 16px;
     line-height: 1.5;
 `
 
 export const Link = styled.a`
-    color: #266af6;
+    color: var(--brand-base);
     text-decoration: none;
 `

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    align-items: flex-start;
+    align-items: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 0 40px 32px;
+    transition: all 2s ease-in-out;
 `
 
 export const Grid = styled.div`
@@ -12,7 +13,7 @@ export const Grid = styled.div`
     grid-gap: 40px;
     grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
     width: 100%;
-    transition: all .2s ease-in-out;
+    transition: all 2s ease-in-out;
 `
 
 export const Card = styled.div``

@@ -4,7 +4,7 @@ import { AiFillStar } from 'react-icons/ai'
 
 export const Container = styled.div`
     align-items: center;
-    background-color: ${props => props.color};
+    background-color: var(--${props => props.color}-400);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -28,24 +28,20 @@ export const Icon = styled.img`
 `
 
 export const LockIcon = styled(FiLock)`
-    color: #83949d;
-    display: flex;
+    color: var(--icon-base);
     font-size: 24px;
-    justify-self: flex-start;
 `
 
 export const FavoriteIcon = styled(AiFillStar)`
     color: transparent;
     cursor: pointer;
-    display: flex;
     font-size: 24px;
-    justify-self: flex-end;
     stroke-width: 80px;
-    stroke: #83949d;
+    stroke: var(--icon-base);
 
     &:hover {
-        color: #f4ad3d;
-        stroke: #f4ad3d;
+        color: var(--yellow-base);
+        stroke: var(--yellow-base);
     }
 `
 
@@ -60,13 +56,13 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h2`
-    color: #11181f;
+    color: var(--text-base);
     font-size: 24px;
     text-align: center;
 `
 
 export const Count = styled.span`
     font-size: 18px;
-    color: #4d616e;
+    color: var(--text-500);
     text-align: center;
 `

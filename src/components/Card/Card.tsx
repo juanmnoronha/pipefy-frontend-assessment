@@ -15,7 +15,7 @@ export function Card({ color, title, icon, cards_count, isPublic }: CardProps) {
     return (
         <S.Container color={color}>
             <S.Actions>
-                {isPublic && <S.LockIcon />}
+                {!isPublic && <S.LockIcon />}
                 <S.FavoriteIcon />
             </S.Actions>
             <S.Icon src={`${TEMPLATE_ICONS_PATH}${icon}-xl.svg`} alt='' />
