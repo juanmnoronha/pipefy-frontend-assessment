@@ -6,6 +6,8 @@ import * as S from './Pipes.style';
 import Card from '../Card';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
+import EmptyCard from '../EmptyCard';
+
 interface PipesProps {
     cards_count: number
     color: string
@@ -38,6 +40,7 @@ export function Pipes() {
                         title={item.name}
                     />
                 ))}
+                <EmptyCard />
             </S.Grid>
         </S.Container>
     );
