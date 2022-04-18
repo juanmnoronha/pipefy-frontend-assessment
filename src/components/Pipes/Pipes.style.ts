@@ -12,8 +12,6 @@ export const Grid = styled.div`
     display: grid;
     grid-gap: 40px;
     grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
-    width: 100%;
     transition: all 2s ease-in-out;
+    width: 100%;
 `
-
-export const Card = styled.div``
