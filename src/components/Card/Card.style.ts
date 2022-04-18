@@ -18,7 +18,7 @@ export const Container = styled.div`
     width: 100%;
 
     &:hover {
-        bottom: 8px;
+        bottom: 4px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         transition: all .4s cubic-bezier(0.19, 1, 0.22, 1);
     }
