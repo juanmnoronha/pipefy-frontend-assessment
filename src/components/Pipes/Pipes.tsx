@@ -40,7 +40,7 @@ export function Pipes() {
                         title={item.name}
                     />
                 ))}
-                <EmptyCard />
+                <EmptyCard label="Add new pipe" />
             </S.Grid>
         </S.Container>
     );

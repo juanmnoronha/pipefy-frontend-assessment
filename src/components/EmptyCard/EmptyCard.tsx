@@ -2,12 +2,16 @@ import React from 'react';
 
 import * as S from './EmptyCard.style';
 
-export function EmptyCard() {
+interface EmptyCardProps {
+    label: string
+}
+
+export function EmptyCard({ label }: EmptyCardProps) {
     return (
         <S.Container>
             <S.Button>
                 <S.AddIcon />
-                <S.Label>Add new pipe</S.Label>            
+                <S.Label>{label}</S.Label>
             </S.Button>
         </S.Container>
     );
