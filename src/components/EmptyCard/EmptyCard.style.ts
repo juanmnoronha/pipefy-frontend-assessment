@@ -5,7 +5,7 @@ export const Container = styled.div`
     align-items: center;
     background-color: transparent;
     border-radius: 12px;
-    border: 2px dashed var(--blue-500);
+    border: 2px dashed var(--blue-400);
     bottom: 0;
     cursor: pointer;
     display: flex;
@@ -41,7 +41,7 @@ export const Button = styled.button`
 `
 
 export const AddIcon = styled(BsPlusSquareFill)`
-    color: var(--blue-500);
+    color: var(--blue-400);
     height: 64px;
     width: 64px;
 `
