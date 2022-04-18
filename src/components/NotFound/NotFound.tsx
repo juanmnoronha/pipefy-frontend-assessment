@@ -1,16 +1,16 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import * as S from './NotFound.style';
 
 interface NotFoundProps {
-  children?: ReactNode
+    message: string
 }
 
-export function NotFound({ children }: NotFoundProps) {
+export function NotFound({ message }: NotFoundProps) {
   return (
     <S.Container>
       <S.NotFoundIcon />
-      <S.Message>{children}</S.Message>
+      <S.Message>{message}</S.Message>
     </S.Container>
   );
 }

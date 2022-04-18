@@ -23,7 +23,7 @@ export function Pipes() {
     });
 
     if (loading) return <Loading />;
-    if (!error) return <NotFound />;
+    if (error) return <NotFound message={`Erro! ${error.message}`} />;
 
     return (
         <S.Container>
