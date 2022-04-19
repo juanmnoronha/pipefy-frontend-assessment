@@ -5,10 +5,9 @@ export const GET_CARDS = gql`
     cards(pipe_id: $pipeId) {
       edges {
         node {
-            id
-            created_at
-            due_date
-            title
+          id
+          created_at
+          title
         }
       }
       pageInfo {
