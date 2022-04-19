@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_ORGANIZATION } from '../../graphql/queries/organization';
@@ -37,11 +37,9 @@ export function Pipes() {
         [setOpenModal, setCurrentPipeId],
     );
 
-    const handleCloseModal = useCallback(() => {
-        setOpenModal(false)
-    }, [setOpenModal])
-
-
+    // const handleCloseModal = useCallback(() => {
+    //     setOpenModal(false)
+    // }, [setOpenModal])
 
     if (loading) return <Loading />;
     if (error) return <NotFound message={`Erro! ${error.message}`} />;
