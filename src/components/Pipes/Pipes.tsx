@@ -7,6 +7,7 @@ import Card from '../Card';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
 import EmptyCard from '../EmptyCard';
+import { sortDataByName } from '../../utils/sort';
 
 interface PipesProps {
     cards_count: number
@@ -23,14 +24,17 @@ export function Pipes() {
             id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
         }
     });
-
+    
     if (loading) return <Loading />;
     if (error) return <NotFound message={`Erro! ${error.message}`} />;
+    
+    const sortedData = data.organization.pipes?.map((item: PipesProps) => item)
+        .sort((a: PipesProps, b: PipesProps) => a.name.trim().localeCompare(b.name.trim()))
 
     return (
         <S.Container>
             <S.Grid>
-                {data.organization.pipes.map((item: PipesProps) => (
+                {sortedData?.map((item: PipesProps) => (
                     <Card
                         color={item.color}
                         count={item.cards_count}
