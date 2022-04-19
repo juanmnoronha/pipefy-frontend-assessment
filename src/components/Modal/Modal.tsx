@@ -31,7 +31,6 @@ export function Modal({ pipeId }: ModalProps) {
             pipeId: pipeId || ''
         }
     });
-
     
     if (loading) return <Loading />;
     if (error) return <NotFound message={`Erro! ${error.message}`} />;
