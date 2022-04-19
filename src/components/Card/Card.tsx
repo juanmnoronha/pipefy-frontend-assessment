@@ -9,11 +9,12 @@ interface CardProps {
     icon: string
     isPublic: boolean
     title: string
+    onClick: () => void
 }
 
-export function Card({ color, title, icon, count, isPublic }: CardProps) {
+export function Card({ color, title, icon, count, onClick, isPublic }: CardProps) {
     return (
-        <S.Container color={color}>
+        <S.Container color={color} onClick={onClick}>
             <S.Actions>
                 {!isPublic && <S.LockIcon />}
                 <S.FavoriteIcon />
