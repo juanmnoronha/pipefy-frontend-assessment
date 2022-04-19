@@ -7,7 +7,6 @@ import Card from '../Card';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
 import EmptyCard from '../EmptyCard';
-import { sortDataByName } from '../../utils/sort';
 
 interface PipesProps {
     cards_count: number
