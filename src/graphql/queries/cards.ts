@@ -8,6 +8,10 @@ export const GET_CARDS = gql`
           id
           created_at
           title
+          current_phase {
+            color
+            name
+          }
         }
       }
       pageInfo {

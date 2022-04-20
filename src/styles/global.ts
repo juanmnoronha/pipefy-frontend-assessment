@@ -30,8 +30,17 @@ export default createGlobalStyle`
     --orange-400: #ffd3b2;
     --gray-base: #6d7c87;
     --gray-400: #dbeaf5;
+    --neutral-base: #7a7a7a;
+    --neutral-100: #fafafa;
+    --neutral-200: #f2f2f2;
+    --neutral-300: #eff0f1;
+    --neutral-400: #e8e8e8;
+    --neutral-500: #dddddd;
     --neutral-600: #d2d2d2;
+    --neutral-700: #c5c5c5;
     --neutral-800: #b5b5b5;
+    --neutral-900: #a2a2a2;
+    --neutral-1000: #8e8e8e;
     --light-500: #eff0f1;
     --dark-1000: #1f2c33;
   }

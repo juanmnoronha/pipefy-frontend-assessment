@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_CARDS } from '../../graphql/queries/cards';
 import * as S from './Modal.style';
 import Loading from '../Loading';
+import ModalCard from '../ModalCard';
 
 interface ModalProps {
   pipeId: string | null
@@ -23,6 +24,10 @@ interface Node {
   created_at: string
   title: string
   id: number
+  current_phase: {
+    color: string
+    name: string
+  }
 }
 
 export function Modal({ closeModal, pipeId }: ModalProps) {
@@ -40,13 +45,15 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
         </S.CloseButton>
         {loading
           ? <Loading />
-          : data.cards.edges.map((item: Cards) => (
-            <div key={item.node?.id}>
-              <h3>{item.node?.title}</h3>
-              <strong>{item.node?.id}</strong>
-              <small>{item.node?.created_at}</small>
-            </div>
-          ))
+          : <S.Grid>{data.cards.edges.map((item: Cards) => (
+            <ModalCard 
+              key={item.node?.id}
+              color={item.node?.current_phase.color}
+              title={item.node?.title}
+              name={item.node?.current_phase.name}
+            />
+          ))}
+          </S.Grid>
         }
       </S.Container>
     </S.Backdrop>

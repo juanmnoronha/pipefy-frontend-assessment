@@ -11,16 +11,25 @@ export const Backdrop = styled.div`
 `
 
 export const Container = styled.div`
-  background-color: var(--white);
+  background-color: var(--neutral-200);
   border-radius: 12px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   height: 90%;
   left: 50%;
+  padding: 56px;
   position: relative;
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
   width: 90%;
+`
+
+export const Grid = styled.div`
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  transition: all 2s ease-in-out;
+  width: 100%;
 `
 
 export const CloseButton = styled.button`
@@ -32,8 +41,8 @@ export const CloseButton = styled.button`
   height: 40px;
   justify-content: center;
   position: absolute;
-  right: 16px;
-  top: 16px;
+  right: 8px;
+  top: 8px;
   width: 40px;
 `
 

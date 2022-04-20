@@ -1,0 +1,1 @@
+export { ModalCard as default } from './ModalCard'
