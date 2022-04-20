@@ -18,7 +18,7 @@ export const Container = styled.div`
   left: 50%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 56px;
+  padding: 48px;
   position: relative;
   top: 50%;
   transform: translate(-50%, -50%);
