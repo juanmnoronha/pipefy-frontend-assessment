@@ -10,63 +10,62 @@ import Modal from '../Modal';
 import NotFound from '../NotFound';
 
 interface PipesProps {
-    cards_count: number
-    color: string
-    icon: string
-    id: number
-    name: string
-    public: boolean
-    pipeId: number
+  cards_count: number
+  color: string
+  icon: string
+  id: number
+  name: string
+  public: boolean
+  pipeId: number
 }
 
 export function Pipes() {
-    const { loading, error, data } = useQuery(GET_ORGANIZATION, {
-        variables: {
-            id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
-        }
-    });
+  const { loading, error, data } = useQuery(GET_ORGANIZATION, {
+    variables: {
+      id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
+    }
+  });
 
-    const [openModal, setOpenModal] = useState(false);
-    const [currentPipeId, setCurrentPipeId] = useState('');
+  const [openModal, setOpenModal] = useState(false);
+  const [currentPipeId, setCurrentPipeId] = useState('');
 
-    const handleClickCard = useCallback(
-        (id) => {
-            setOpenModal(true)
-            setCurrentPipeId(id)
-        },
-        [setOpenModal, setCurrentPipeId],
-    );
+  const handleClickCard = useCallback(
+    (id) => {
+      setOpenModal(true)
+      setCurrentPipeId(id)
+    },
+    [setOpenModal, setCurrentPipeId],
+  );
 
-    // const handleCloseModal = useCallback(() => {
-    //     setOpenModal(false)
-    // }, [setOpenModal])
+  // const handleCloseModal = useCallback(() => {
+  //     setOpenModal(false)
+  // }, [setOpenModal])
 
-    if (loading) return <Loading />;
-    if (error) return <NotFound message={`Erro! ${error.message}`} />;
+  if (loading) return <Loading />;
+  if (error) return <NotFound message={`Erro! ${error.message}`} />;
 
-    const sortedData = data.organization.pipes?.map((item: PipesProps) => item)
-        .sort((a: PipesProps, b: PipesProps) => a.name.trim().localeCompare(b.name.trim()))
+  const sortedData = data.organization.pipes?.map((item: PipesProps) => item)
+    .sort((a: PipesProps, b: PipesProps) => a.name.trim().localeCompare(b.name.trim()))
 
-
-    return (
-        <S.Container>
-            <S.Grid>
-                {sortedData?.map((item: PipesProps) => (
-                    <Card
-                        color={item.color}
-                        count={item.cards_count}
-                        icon={item.icon}
-                        isPublic={item.public}
-                        key={item.id}
-                        title={item.name}
-                        onClick={() => handleClickCard(item.id)}
-                    />
-                ))}
-                <EmptyCard label="Add new pipe" />
-            </S.Grid>
-            {openModal && (
-                <Modal pipeId={currentPipeId} />
-            )}
-        </S.Container>
-    );
+  return (
+    <S.Container>
+      <S.Grid>
+        {sortedData?.map((item: PipesProps) => (
+          <Card
+            color={item.color}
+            count={item.cards_count}
+            icon={item.icon}
+            isPublic={item.public}
+            key={item.id}
+            title={item.name}
+            onClick={() => handleClickCard(item.id)}
+          />
+        ))}
+        <EmptyCard label="Add new pipe" />
+      </S.Grid>
+      {openModal && (
+        <Modal pipeId={currentPipeId} />
+      )}
+    </S.Container>
+  );
 }

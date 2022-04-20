@@ -35,7 +35,7 @@ export default createGlobalStyle`
     --light-500: #eff0f1;
     --dark-1000: #1f2c33;
   }
-  
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -59,8 +59,8 @@ export default createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
-  
+
   button {
     cursor: pointer;
   }
-`
+  `

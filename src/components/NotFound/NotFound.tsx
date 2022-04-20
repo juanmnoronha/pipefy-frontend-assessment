@@ -3,7 +3,7 @@ import React from 'react';
 import * as S from './NotFound.style';
 
 interface NotFoundProps {
-    message: string
+  message: string
 }
 
 export function NotFound({ message }: NotFoundProps) {
