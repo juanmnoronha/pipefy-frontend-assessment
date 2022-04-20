@@ -5,6 +5,7 @@ import { GET_CARDS } from '../../graphql/queries/cards';
 import * as S from './Modal.style';
 import Loading from '../Loading';
 import ModalCard from '../ModalCard';
+import Button from '../Button';
 
 interface ModalProps {
   pipeId: string | null
@@ -45,15 +46,19 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
         </S.CloseButton>
         {loading
           ? <Loading />
-          : <S.Grid>{data.cards.edges.map((item: Cards) => (
-            <ModalCard 
-              key={item.node?.id}
-              color={item.node?.current_phase.color}
-              title={item.node?.title}
-              name={item.node?.current_phase.name}
-            />
-          ))}
-          </S.Grid>
+          : <>
+            <S.Grid>
+              {data.cards.edges.map((item: Cards) => (
+                <ModalCard
+                  key={item.node?.id}
+                  color={item.node?.current_phase.color}
+                  title={item.node?.title}
+                  name={item.node?.current_phase.name}
+                />
+              ))}
+            </S.Grid>
+            <Button />
+          </>
         }
       </S.Container>
     </S.Backdrop>

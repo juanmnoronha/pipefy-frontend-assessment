@@ -11,13 +11,15 @@ export const Backdrop = styled.div`
 `
 
 export const Container = styled.div`
+  align-items: center;
   background-color: var(--neutral-200);
   border-radius: 12px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
   height: 90%;
+  justify-content: center;
   left: 50%;
-  overflow-x: hidden;
-  overflow-y: auto;
   padding: 48px;
   position: relative;
   top: 50%;
@@ -30,6 +32,9 @@ export const Grid = styled.div`
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  margin-bottom: 32px;
+  overflow-x: hidden;
+  overflow-y: auto;
   transition: all 2s ease-in-out;
   width: 100%;
 `
