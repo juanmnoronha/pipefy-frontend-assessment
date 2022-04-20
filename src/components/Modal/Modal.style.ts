@@ -32,7 +32,7 @@ export const Grid = styled.div`
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   overflow-x: hidden;
   overflow-y: auto;
   transition: all 2s ease-in-out;
