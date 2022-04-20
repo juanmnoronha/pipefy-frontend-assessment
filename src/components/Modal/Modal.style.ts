@@ -16,6 +16,8 @@ export const Container = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   height: 90%;
   left: 50%;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 56px;
   position: relative;
   top: 50%;
