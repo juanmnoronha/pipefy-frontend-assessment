@@ -1,14 +1,12 @@
 import React, { useCallback } from 'react';
-import { useQuery } from '@apollo/client';
 
-import { GET_CARDS } from '../../graphql/queries/cards';
 import { LIMIT_CARDS } from '../../utils/constants';
+import { useQueryCards } from '../../graphql/queries/cards';
 import * as S from './Modal.style';
 import Button from '../Button';
 import Loading from '../Loading';
 import ModalCard from '../ModalCard';
 import NotFound from '../NotFound';
-
 interface ModalProps {
   pipeId: string | null
   closeModal: () => void
@@ -34,7 +32,7 @@ interface Node {
 }
 
 export function Modal({ closeModal, pipeId }: ModalProps) {
-  const { loading, data, fetchMore } = useQuery(GET_CARDS, {
+  const { loading, data, fetchMore } = useQueryCards({
     variables: {
       pipeId: pipeId || '',
       first: LIMIT_CARDS
@@ -42,6 +40,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
   });
 
   const pageInfo = data?.cards.pageInfo;
+  const hasCards = data?.cards?.edges.length > 0;
 
   const handleShowMore = useCallback(async () => {
     if (pageInfo?.hasNextPage && pageInfo.endCursor) {
@@ -52,8 +51,6 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
       })
     }
   }, [pageInfo, fetchMore]);
-
-  const hasCards = data?.cards?.edges.length > 0;
 
   return (
     <S.Backdrop>

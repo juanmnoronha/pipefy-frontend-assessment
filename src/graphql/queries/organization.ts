@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 
 export const GET_ORGANIZATION = gql`
   query GetOrganization($id: ID!) {
@@ -16,3 +16,7 @@ export const GET_ORGANIZATION = gql`
     }
   }
 `;
+
+export function useQueryOrganization(options?: any) {
+  return useQuery(GET_ORGANIZATION, options)
+}

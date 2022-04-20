@@ -9,7 +9,7 @@ interface CardProps {
   icon: string
   isPublic: boolean
   onClick: () => void
-  onError: ReactEventHandler
+  onError?: ReactEventHandler
   title: string
 }
 

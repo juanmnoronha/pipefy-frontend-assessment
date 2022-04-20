@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import { useQuery } from '@apollo/client';
 
-import { GET_ORGANIZATION } from '../../graphql/queries/organization';
+import { useQueryOrganization } from '../../graphql/queries/organization';
 import * as S from './Pipes.style';
 import Card from '../Card';
 import EmptyCard from '../EmptyCard';
@@ -20,7 +19,7 @@ interface PipesProps {
 }
 
 export function Pipes() {
-  const { loading, error, data } = useQuery(GET_ORGANIZATION, {
+  const { loading, error, data } = useQueryOrganization({
     variables: {
       id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
     }
@@ -38,7 +37,7 @@ export function Pipes() {
   );
 
   const handleCloseModal = useCallback(() => {
-      setOpenModal(false)
+    setOpenModal(false)
   }, [setOpenModal])
 
   if (loading) return <Loading />;

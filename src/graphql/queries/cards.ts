@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 
 export const GET_CARDS = gql`
   query GetCards($pipeId: ID!, $first: Int, $after: String) {
@@ -21,3 +21,7 @@ export const GET_CARDS = gql`
     }
   }
 `;
+
+export function useQueryCards(options?: any) {
+  return useQuery(GET_CARDS, options)
+}
