@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_CARDS } from '../../graphql/queries/cards';
+import { LIMIT_CARDS } from '../../utils/constants';
 import * as S from './Modal.style';
+import Button from '../Button';
 import Loading from '../Loading';
 import ModalCard from '../ModalCard';
-import Button from '../Button';
-import { LIMIT_CARDS } from '../../utils/constants';
 import NotFound from '../NotFound';
 
 interface ModalProps {
