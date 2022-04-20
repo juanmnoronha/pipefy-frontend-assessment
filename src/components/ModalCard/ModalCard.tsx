@@ -10,7 +10,7 @@ interface ModalCardProps {
 
 export function ModalCard({ color, name, title }: ModalCardProps) {
   return (
-    <S.Container color={color}>
+    <S.Container color={color} data-testid="modal-card">
       <S.Content>
         <S.Badge color={color}>{name}</S.Badge>
         <S.Title>{title}</S.Title>

@@ -5,7 +5,7 @@ import * as S from './Header.style';
 
 export function Header() {
   return (
-    <S.Container>
+    <S.Container data-testid="header">
       <S.Title>
         Your pipes
         <S.Help href={FAQ_LINK} target='_blank'>

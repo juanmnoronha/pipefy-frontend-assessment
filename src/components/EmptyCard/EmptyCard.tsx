@@ -8,7 +8,7 @@ interface EmptyCardProps {
 
 export function EmptyCard({ label }: EmptyCardProps) {
   return (
-    <S.Container>
+    <S.Container data-testid="empty-card">
       <S.Button>
         <S.AddIcon />
         <S.Label>{label}</S.Label>

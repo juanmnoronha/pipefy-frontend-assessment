@@ -8,7 +8,7 @@ interface NotFoundProps {
 
 export function NotFound({ message }: NotFoundProps) {
   return (
-    <S.Container>
+    <S.Container data-testid="not-found">
       <S.NotFoundIcon />
       <S.Message>{message}</S.Message>
     </S.Container>

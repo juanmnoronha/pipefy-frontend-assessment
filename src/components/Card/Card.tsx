@@ -22,7 +22,7 @@ export function Card({ color, title, icon, count, onClick, isPublic }: CardProps
   }
 
   return (
-    <S.Container color={color} onClick={onClick}>
+    <S.Container color={color} onClick={onClick} data-testid="card">
       <S.Actions>
         {!isPublic && <S.LockIcon />}
         <S.FavoriteIcon />

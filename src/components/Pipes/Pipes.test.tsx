@@ -12,7 +12,7 @@ describe('<Pipes />', () => {
       </MockedProvider>
     )
 
-    expect(screen.getByRole(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/loading/i)).toBeInTheDocument();
   })
   
   it('should render section', async () => {
@@ -51,7 +51,7 @@ describe('<Pipes />', () => {
       </MockedProvider >
     )
 
-    expect(screen.getByRole(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/loading/i)).toBeInTheDocument();
     expect(await screen.findByText(/IT Service Desk/i)).toBeInTheDocument();
   })
 })

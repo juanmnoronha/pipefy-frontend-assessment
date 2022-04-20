@@ -12,7 +12,7 @@ describe('<Modal />', () => {
       </MockedProvider>
     )
 
-    expect(screen.getByRole(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/loading/i)).toBeInTheDocument();
   })
 
   it('should render section', async () => {
@@ -60,7 +60,7 @@ describe('<Modal />', () => {
       </MockedProvider>
     )
 
-    expect(screen.getByRole(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/loading/i)).toBeInTheDocument();
     expect(await screen.findByText(/Purchase/i)).toBeInTheDocument();
     expect(await screen.findByRole(/button/i, { name: /Show More/i })).toBeInTheDocument();
   })
