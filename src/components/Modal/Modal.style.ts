@@ -51,6 +51,7 @@ export const CloseButton = styled.button`
   right: 8px;
   top: 8px;
   width: 40px;
+  z-index: 1;
 `
 
 export const CloseIcon = styled(IoMdClose)`
