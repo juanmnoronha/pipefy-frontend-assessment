@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_CARDS } from '../../graphql/queries/cards';
@@ -6,6 +6,7 @@ import * as S from './Modal.style';
 import Loading from '../Loading';
 import ModalCard from '../ModalCard';
 import Button from '../Button';
+import { LIMIT_CARDS } from '../../utils/constants';
 
 interface ModalProps {
   pipeId: string | null
@@ -32,11 +33,24 @@ interface Node {
 }
 
 export function Modal({ closeModal, pipeId }: ModalProps) {
-  const { loading, data } = useQuery(GET_CARDS, {
+  const { loading, data, fetchMore } = useQuery(GET_CARDS, {
     variables: {
-      pipeId: pipeId
+      pipeId: pipeId || '',
+      first: LIMIT_CARDS
     }
   });
+
+  const pageInfo = data?.cards.pageInfo;
+
+  const handleShowMore = useCallback(async () => {
+    if (pageInfo?.hasNextPage && pageInfo.endCursor) {
+      await fetchMore({
+        variables: {
+          after: pageInfo.endCursor
+        }
+      })
+    }
+  }, [pageInfo, fetchMore])
 
   return (
     <S.Backdrop>
@@ -48,7 +62,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
           ? <Loading />
           : <>
             <S.Grid>
-              {data.cards.edges.map((item: Cards) => (
+              {data.cards.edges?.map((item: Cards) => (
                 <ModalCard
                   key={item.node?.id}
                   color={item.node?.current_phase.color}
@@ -57,7 +71,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
                 />
               ))}
             </S.Grid>
-            <Button />
+            {pageInfo.hasNextPage && <Button onClick={handleShowMore} />}
           </>
         }
       </S.Container>

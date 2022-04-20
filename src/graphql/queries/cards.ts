@@ -1,12 +1,11 @@
 import { gql } from '@apollo/client';
 
 export const GET_CARDS = gql`
-  query GetCards($pipeId: ID!) {
-    cards(pipe_id: $pipeId) {
+  query GetCards($pipeId: ID!, $first: Int, $after: String) {
+    cards(pipe_id: $pipeId, first: $first, after: $after) {
       edges {
         node {
           id
-          created_at
           title
           current_phase {
             color
