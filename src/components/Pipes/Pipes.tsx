@@ -37,9 +37,9 @@ export function Pipes() {
     [setOpenModal, setCurrentPipeId],
   );
 
-  // const handleCloseModal = useCallback(() => {
-  //     setOpenModal(false)
-  // }, [setOpenModal])
+  const handleCloseModal = useCallback(() => {
+      setOpenModal(false)
+  }, [setOpenModal])
 
   if (loading) return <Loading />;
   if (error) return <NotFound message={`Erro! ${error.message}`} />;
@@ -64,7 +64,7 @@ export function Pipes() {
         <EmptyCard label="Add new pipe" />
       </S.Grid>
       {openModal && (
-        <Modal pipeId={currentPipeId} />
+        <Modal closeModal={handleCloseModal} pipeId={currentPipeId} />
       )}
     </S.Container>
   );

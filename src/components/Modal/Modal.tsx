@@ -2,13 +2,12 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_CARDS } from '../../graphql/queries/cards';
-
 import * as S from './Modal.style';
 import Loading from '../Loading';
-import NotFound from '../NotFound';
 
 interface ModalProps {
   pipeId: string | null
+  closeModal: () => void
 }
 
 interface Cards {
@@ -23,23 +22,33 @@ interface Edge {
 interface Node {
   created_at: string
   title: string
+  id: number
 }
 
-export function Modal({ pipeId }: ModalProps) {
-  const { loading, error, data } = useQuery(GET_CARDS, {
+export function Modal({ closeModal, pipeId }: ModalProps) {
+  const { loading, data } = useQuery(GET_CARDS, {
     variables: {
-      pipeId: pipeId || ''
+      pipeId: pipeId
     }
   });
 
-  if (loading) return <Loading />;
-  if (error) return <NotFound message={`Erro! ${error.message}`} />;
-
   return (
-    <S.Container>
-      {data.cards.edges.map((item: Cards) => (
-        <p>{item.node?.title}</p>
-      ))}
-    </S.Container>
+    <S.Backdrop>
+      <S.Container>
+        <S.CloseButton onClick={closeModal}>
+          <S.CloseIcon />
+        </S.CloseButton>
+        {loading
+          ? <Loading />
+          : data.cards.edges.map((item: Cards) => (
+            <div key={item.node?.id}>
+              <h3>{item.node?.title}</h3>
+              <strong>{item.node?.id}</strong>
+              <small>{item.node?.created_at}</small>
+            </div>
+          ))
+        }
+      </S.Container>
+    </S.Backdrop>
   );
 }

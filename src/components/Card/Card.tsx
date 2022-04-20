@@ -4,11 +4,11 @@ import { TEMPLATE_ICONS_PATH } from '../../utils/constants';
 import * as S from './Card.style';
 
 interface CardProps {
-  count: number
+  count?: number
   color: string
-  icon: string
-  isPublic: boolean
-  title: string
+  icon?: string
+  isPublic?: boolean
+  title?: string
   onClick: () => void
 }
 
