@@ -7,5 +7,5 @@ interface ButtonProps {
 }
 
 export function Button({ onClick }: ButtonProps) {
-  return <S.Container onClick={onClick}>Show More</S.Container>;
+  return <S.Container onClick={onClick} role="button">Show More</S.Container>;
 }

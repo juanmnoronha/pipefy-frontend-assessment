@@ -47,7 +47,7 @@ export function Pipes() {
     .sort((a: PipesProps, b: PipesProps) => a.name.trim().localeCompare(b.name.trim()))
 
   return (
-    <S.Container>
+    <S.Container data-testid="pipes">
       <S.Grid>
         {sortedData?.map((item: PipesProps) => (
           <Card
