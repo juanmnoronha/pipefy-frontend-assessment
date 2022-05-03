@@ -20,18 +20,18 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
     }
   });
 
-  const hasPageInfo = data?.cards.pageInfo;
-  const hasCards = data?.cards?.edges?.length !== 0;
+  const hasCards = data?.cards?.edges?.length || [];
+  const pageInfo = data?.cards?.pageInfo;
 
   const handleShowMore = useCallback(async () => {
-    if (hasPageInfo?.hasNextPage && hasPageInfo?.endCursor) {
+    if (pageInfo?.hasNextPage && pageInfo?.endCursor) {
       await fetchMore({
         variables: {
-          after: hasPageInfo.endCursor
+          after: pageInfo?.endCursor
         }
       })
     }
-  }, [hasPageInfo, fetchMore]);
+  }, [pageInfo, fetchMore]);
 
   return (
     <S.Backdrop>
@@ -54,7 +54,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
                     />
                   ))}
                 </S.Grid>
-                {hasPageInfo?.hasNextPage && <Button onClick={handleShowMore} />}
+                {pageInfo?.hasNextPage && <Button onClick={handleShowMore} />}
               </>
               : <NotFound message='There are no cards for this query! :(' />
             }

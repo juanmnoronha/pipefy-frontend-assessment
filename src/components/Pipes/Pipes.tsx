@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { useQueryOrganization } from '../../graphql/queries/organization';
 import * as S from './Pipes.style';
@@ -18,6 +18,20 @@ export function Pipes() {
 
   const [openModal, setOpenModal] = useState(false);
   const [currentPipeId, setCurrentPipeId] = useState('');
+  const pipesListCard = useMemo(() => {
+    return (
+      [...(data?.organization.pipes || [])].sort((a, b) => a.name.trim().localeCompare(b.name.trim())).map(item => (
+        <Card
+          color={item.color}
+          count={item.cards_count}
+          icon={item.icon}
+          isPublic={item.public}
+          key={item.id}
+          title={item.name}
+          onClick={() => handleClickCard(item.id)}
+        />
+      )))
+  }, [data])
 
   const handleClickCard = useCallback(
     (id) => {
@@ -34,23 +48,10 @@ export function Pipes() {
   if (loading) return <Loading />;
   if (error) return <NotFound message={`Erro! ${error.message}`} />;
 
-  const sortedData = data?.organization?.pipes?.map(item => item)
-    .sort((a, b) => a.name.trim().localeCompare(b.name.trim()))
-
   return (
     <S.Container data-testid="pipes">
       <S.Grid>
-        {sortedData?.map(item => (
-          <Card
-            color={item.color}
-            count={item.cards_count}
-            icon={item.icon}
-            isPublic={item.public}
-            key={item.id}
-            title={item.name}
-            onClick={() => handleClickCard(item.id)}
-          />
-        ))}
+        {pipesListCard}
         <EmptyCard label="Add new pipe" />
       </S.Grid>
       {openModal && (
