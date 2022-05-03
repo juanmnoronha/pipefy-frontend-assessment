@@ -8,49 +8,30 @@ import Loading from '../Loading';
 import ModalCard from '../ModalCard';
 import NotFound from '../NotFound';
 interface ModalProps {
-  pipeId: string | null
+  pipeId: string
   closeModal: () => void
-}
-
-interface Cards {
-  edges: Edge
-  node: Node
-}
-
-interface Edge {
-  node: Node
-}
-
-interface Node {
-  created_at: string
-  title: string
-  id: number
-  current_phase: {
-    color: string
-    name: string
-  }
 }
 
 export function Modal({ closeModal, pipeId }: ModalProps) {
   const { loading, data, fetchMore } = useQueryCards({
     variables: {
       pipeId: pipeId || '',
-      first: LIMIT_CARDS
+      first: LIMIT_CARDS,
     }
   });
 
-  const pageInfo = data?.cards.pageInfo;
-  const hasCards = data?.cards?.edges.length > 0;
+  const hasPageInfo = data?.cards.pageInfo;
+  const hasCards = data?.cards?.edges?.length !== 0;
 
   const handleShowMore = useCallback(async () => {
-    if (pageInfo?.hasNextPage && pageInfo.endCursor) {
+    if (hasPageInfo?.hasNextPage && hasPageInfo?.endCursor) {
       await fetchMore({
         variables: {
-          after: pageInfo.endCursor
+          after: hasPageInfo.endCursor
         }
       })
     }
-  }, [pageInfo, fetchMore]);
+  }, [hasPageInfo, fetchMore]);
 
   return (
     <S.Backdrop>
@@ -64,7 +45,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
             {hasCards
               ? <>
                 <S.Grid>
-                  {data.cards.edges?.map((item: Cards) => (
+                  {data?.cards.edges.map(item => (
                     <ModalCard
                       key={item.node?.id}
                       color={item.node?.current_phase.color}
@@ -73,7 +54,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
                     />
                   ))}
                 </S.Grid>
-                {pageInfo.hasNextPage && <Button onClick={handleShowMore} />}
+                {hasPageInfo?.hasNextPage && <Button onClick={handleShowMore} />}
               </>
               : <NotFound message='There are no cards for this query! :(' />
             }

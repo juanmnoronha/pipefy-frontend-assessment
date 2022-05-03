@@ -8,20 +8,11 @@ import Loading from '../Loading';
 import Modal from '../Modal';
 import NotFound from '../NotFound';
 
-interface PipesProps {
-  cards_count: number
-  color: string
-  icon: string
-  id: number
-  name: string
-  public: boolean
-  pipeId: number
-}
 
 export function Pipes() {
   const { loading, error, data } = useQueryOrganization({
     variables: {
-      id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID
+      id: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID || ''
     }
   });
 
@@ -43,13 +34,13 @@ export function Pipes() {
   if (loading) return <Loading />;
   if (error) return <NotFound message={`Erro! ${error.message}`} />;
 
-  const sortedData = data.organization.pipes?.map((item: PipesProps) => item)
-    .sort((a: PipesProps, b: PipesProps) => a.name.trim().localeCompare(b.name.trim()))
+  const sortedData = data?.organization?.pipes?.map(item => item)
+    .sort((a, b) => a.name.trim().localeCompare(b.name.trim()))
 
   return (
     <S.Container data-testid="pipes">
       <S.Grid>
-        {sortedData?.map((item: PipesProps) => (
+        {sortedData?.map(item => (
           <Card
             color={item.color}
             count={item.cards_count}
