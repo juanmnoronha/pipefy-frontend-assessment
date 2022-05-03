@@ -30,9 +30,11 @@ export function Pipes() {
     setOpenModal(false)
   }, [setOpenModal])
 
+  const pipesData = data?.organization.pipes
+
   const pipesListCard = useMemo(() => {
     return (
-      [...(data?.organization.pipes || [])].sort((a, b) => a.name.trim().localeCompare(b.name.trim())).map(item => (
+      [...(pipesData || [])].sort((a, b) => a.name.trim().localeCompare(b.name.trim())).map(item => (
         <Card
           color={item.color}
           count={item.cards_count}
@@ -43,7 +45,7 @@ export function Pipes() {
           onClick={() => handleClickCard(item.id)}
         />
       )))
-  }, [data, handleClickCard])
+  }, [pipesData, handleClickCard])
 
   if (loading) return <Loading />;
   if (error) return <NotFound message={`Erro! ${error.message}`} />;
