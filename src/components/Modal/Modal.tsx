@@ -20,7 +20,7 @@ export function Modal({ closeModal, pipeId }: ModalProps) {
     }
   });
 
-  const hasCards = data?.cards?.edges?.length || [];
+  const hasCards = data?.cards?.edges?.length !== 0;
   const pageInfo = data?.cards?.pageInfo;
 
   const handleShowMore = useCallback(async () => {

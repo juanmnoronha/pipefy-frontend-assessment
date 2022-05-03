@@ -18,6 +18,19 @@ export function Pipes() {
 
   const [openModal, setOpenModal] = useState(false);
   const [currentPipeId, setCurrentPipeId] = useState('');
+
+  const handleClickCard = useCallback(
+    (id) => {
+      setOpenModal(true)
+      setCurrentPipeId(id)
+    },
+    [setOpenModal, setCurrentPipeId],
+  );
+
+  const handleCloseModal = useCallback(() => {
+    setOpenModal(false)
+  }, [setOpenModal])
+
   const pipesListCard = useMemo(() => {
     return (
       [...(data?.organization.pipes || [])].sort((a, b) => a.name.trim().localeCompare(b.name.trim())).map(item => (
@@ -31,19 +44,7 @@ export function Pipes() {
           onClick={() => handleClickCard(item.id)}
         />
       )))
-  }, [data])
-
-  const handleClickCard = useCallback(
-    (id) => {
-      setOpenModal(true)
-      setCurrentPipeId(id)
-    },
-    [setOpenModal, setCurrentPipeId],
-  );
-
-  const handleCloseModal = useCallback(() => {
-    setOpenModal(false)
-  }, [setOpenModal])
+  }, [data, handleClickCard])
 
   if (loading) return <Loading />;
   if (error) return <NotFound message={`Erro! ${error.message}`} />;
