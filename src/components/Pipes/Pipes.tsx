@@ -8,7 +8,6 @@ import Loading from '../Loading';
 import Modal from '../Modal';
 import NotFound from '../NotFound';
 
-
 export function Pipes() {
   const { loading, error, data } = useQueryOrganization({
     variables: {
